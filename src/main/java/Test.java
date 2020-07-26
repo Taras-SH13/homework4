@@ -6,9 +6,12 @@ import java.time.LocalDate;
 
 
 class Test {
+    Test() throws IOException, ClassNotFoundException {
+    }
+
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
-        Human bob = new Human("Bob", "Robson", "Tennis", LocalDate.now());
+        Human bob = new Human("Jim", "Manson", "fishing", LocalDate.now());
         Human jon = new Human("Jon", "Wait", "footbol", LocalDate.now());
 
 
@@ -18,11 +21,13 @@ class Test {
         objectOutputStream.writeObject(bob);
         objectOutputStream.writeObject(jon);
 
-
         //закрываем поток и освобождаем ресурсы
         objectOutputStream.close();
-        ReadFromFile.read();
+        WriteToJSON writeToJSON=new WriteToJSON();
+        writeToJSON.toJson(ReadFromFile.read());
+
     }
+
 
 
 }

@@ -6,7 +6,9 @@ public class Human implements Serializable {
     private static final long serialVersionUID = 1L;
     private String firstName;
     private String lastName;
+    @JsonValue(name = "fun")
     private String hobby;
+    @CustomDateFormat(format = "dd-MM-yyyy")
     private LocalDate birthDate;
 
     public Human(String firstName, String lastName, String hobby, LocalDate birthDate) {

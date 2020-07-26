@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 
 public class ReadFromFile {
-    public static void read() throws IOException, ClassNotFoundException {
+    public static Object read() throws IOException, ClassNotFoundException {
 
 
     FileInputStream fileInputStream = new FileInputStream("src/main/resources/save.ser");
@@ -12,6 +12,7 @@ public class ReadFromFile {
 
     Human savedHuman = (Human) objectInputStream.readObject();
 
-       System.out.println(savedHuman);
+
+       return savedHuman;
 }
 }
