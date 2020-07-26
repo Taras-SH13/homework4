@@ -23,16 +23,13 @@ public class Human implements Serializable {
         this.firstName = firstName;
     }
 
-
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-
     public void setHobby(String hobby) {
         this.hobby = hobby;
     }
-
 
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
