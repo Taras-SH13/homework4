@@ -11,19 +11,20 @@ public class WriteToJSON {
 
         for (Field field : object.getClass().getDeclaredFields()) {
 
-            if (field.getAnnotation(JsonValue.class) != null ) {
+            if (field.getAnnotation(JsonValue.class) != null) {
                 try {
                     System.out.println("Object annotated field name - " + field.getName());
                     field.setAccessible(true);
                     System.out.println("Object annotated field value - " + field.get(object));
+                    System.out.println(" ");
                     Annotation[] annotation = field.getAnnotations();
                     for (Annotation annotation1 : annotation) {
                         System.out.println("The object is annotated: ");
                         System.out.println(annotation1 + "  " + annotation1.annotationType());
                         final Class<?> type = annotation1.annotationType();
-                        final Method m= type.getMethod("name");
+                        final Method m = type.getMethod("name");
                         m.setAccessible(true);
-                        System.out.println("Field - "+ m.getName()+" : "+"Value - " + m.invoke(annotation1));
+                        System.out.println("Field - " + m.getName() + " : " + "Value - " + m.invoke(annotation1));
 
                     }
                 } catch (Exception e) {
@@ -31,27 +32,42 @@ public class WriteToJSON {
                 }
             }
 
-            if (field.getAnnotation(CustomDateFormat.class) != null ) {
+            if (field.getAnnotation(CustomDateFormat.class) != null) {
                 try {
                     System.out.println("Object annotated field name - " + field.getName());
+                    System.out.println(" ");
                     field.setAccessible(true);
                     System.out.println("Object annotated field value - " + field.get(object));
+                    System.out.println(" ");
                     Annotation[] annotation = field.getAnnotations();
                     for (Annotation annotation1 : annotation) {
                         System.out.println("The object is annotated: ");
+                        System.out.println(" ");
                         System.out.println(annotation1 + "  " + annotation1.annotationType());
                         final Class<?> type = annotation1.annotationType();
-                        final Method m= type.getMethod("format");
+                        final Method m = type.getMethod("format");
                         m.setAccessible(true);
-                        System.out.println("Field - "+ m.getName()+" : "+"Value - " + m.invoke(annotation1));
+                        System.out.println("Field - " + m.getName() + " : " + "Value - " + m.invoke(annotation1));
 
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+            }
+            if (field.getAnnotation(JsonValue.class) == null && field.getAnnotation(CustomDateFormat.class) == null) {
+
+                try {
+                    System.out.println("Object no annotaded field name - " + field.getName());
+                    System.out.println(" ");
+                    field.setAccessible(true);
+                    System.out.println("Object no annotaded field field value - " + field.get(object));
+                    System.out.println(" ");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
             }
 
         }
-
     }
 }

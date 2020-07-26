@@ -10,7 +10,7 @@ public class ReadFromFile {
     FileInputStream fileInputStream = new FileInputStream("src/main/resources/save.ser");
     ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
 
-    Human savedHuman = (Human) objectInputStream.readObject();
+    Object savedHuman = (Object) objectInputStream.readObject();
 
 
        return savedHuman;

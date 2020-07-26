@@ -11,18 +11,19 @@ class Test {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
-        Human bob = new Human("Jim", "Manson", "fishing", LocalDate.now());
-        Human jon = new Human("Jon", "Wait", "footbol", LocalDate.now());
+        Human jim = new Human("Jim", "Manson", "fishing", LocalDate.now());
+        Human2 jon = new Human2("Jon", "Wait", "footbol", LocalDate.now());
 
 
         FileOutputStream outputStream = new FileOutputStream("src/main/resources/save.ser");
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
 
-        objectOutputStream.writeObject(bob);
-        objectOutputStream.writeObject(jon);
-
+        objectOutputStream.writeObject(jim);
         //закрываем поток и освобождаем ресурсы
         objectOutputStream.close();
+
+
+
         WriteToJSON writeToJSON=new WriteToJSON();
         writeToJSON.toJson(ReadFromFile.read());
 
