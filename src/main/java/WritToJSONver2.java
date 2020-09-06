@@ -6,11 +6,7 @@ import java.lang.reflect.Method;
 public class WritToJSONver2 {
 
     void toJson(Object object) throws InvocationTargetException, IllegalAccessException {
-        String firstName;
-        String lastName;
-        String hobby;
-        String birthDate;
-        String serialVersionUID;
+
         for (Field field : object.getClass().getDeclaredFields()) {
 
 
