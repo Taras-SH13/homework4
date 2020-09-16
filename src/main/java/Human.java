@@ -1,6 +1,8 @@
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+
 import java.io.Serializable;
 import java.time.LocalDate;
-
+@JsonAutoDetect
 public class Human implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -18,6 +20,25 @@ public class Human implements Serializable {
         this.birthDate = birthDate;
     }
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getHobby() {
+        return hobby;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
